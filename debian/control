@@ -1,0 +1,36 @@
+Source: rust-rand-hc
+Section: rust
+Priority: optional
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 25),
+ cargo:native <!nocheck>,
+ rustc:native <!nocheck>,
+ libstd-rust-dev <!nocheck>,
+ librust-rand-core-0.6+default-dev <!nocheck>
+Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+Uploaders:
+ Wolfgang Silbermayr <wolfgang@silbermayr.at>
+Standards-Version: 4.5.1
+Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/rand-hc]
+Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/rand-hc
+Homepage: https://rust-random.github.io/book
+X-Cargo-Crate: rand_hc
+Rules-Requires-Root: no
+
+Package: librust-rand-hc-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-rand-core-0.6+default-dev
+Provides:
+ librust-rand-hc+default-dev (= ${binary:Version}),
+ librust-rand-hc-0-dev (= ${binary:Version}),
+ librust-rand-hc-0+default-dev (= ${binary:Version}),
+ librust-rand-hc-0.3-dev (= ${binary:Version}),
+ librust-rand-hc-0.3+default-dev (= ${binary:Version}),
+ librust-rand-hc-0.3.1-dev (= ${binary:Version}),
+ librust-rand-hc-0.3.1+default-dev (= ${binary:Version})
+Description: HC128 random number generator - Rust source code
+ This package contains the source for the Rust rand_hc crate, packaged by
+ debcargo for use with cargo and dh-cargo.
